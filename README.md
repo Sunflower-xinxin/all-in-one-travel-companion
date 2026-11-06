@@ -6,4 +6,6 @@ A mobile-friendly, installable travel companion for transport, daily itineraries
 
 ## Install
 
-Open the GitHub Pages link in Safari on iPhone or Chrome on Android, then choose **Add to Home Screen** / **Install app**.
+Open the production site in Safari on iPhone or Chrome on Android, then choose **Add to Home Screen** / **Install app**.
+
+https://sunflower-xinxin.github.io/all-in-one-travel-companion/
