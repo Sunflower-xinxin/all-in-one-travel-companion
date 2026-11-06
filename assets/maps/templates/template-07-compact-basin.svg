@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-label="通用旅行路线底图">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf4"/>
+      <stop offset="1" stop-color="#f2f0df"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b9dce0"/>
+      <stop offset="1" stop-color="#8bbcc3"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <pattern id="contours" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M-8 60C16 34 39 83 80 43M-12 25C12 5 36 42 77 14" fill="none" stroke="#6d7a60" stroke-opacity=".09" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1448" height="1086" rx="76" fill="url(#paper)"/>
+  <path d="M97 443C89 264 271 111 449 156c95-90 264-75 355 32 123-79 302-13 344 114 139 15 229 142 193 267 53 117-28 257-163 282-78 125-256 151-362 62-118 92-302 70-388-46-138 22-277-77-289-210-79-45-98-147-42-214z" fill="#edf0df" stroke="#65715b" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M97 443C89 264 271 111 449 156c95-90 264-75 355 32 123-79 302-13 344 114 139 15 229 142 193 267 53 117-28 257-163 282-78 125-256 151-362 62-118 92-302 70-388-46-138 22-277-77-289-210-79-45-98-147-42-214z" fill="url(#contours)"/>
+  <path d="M545 240c59 116 1 182 78 252 62 55 25 124 98 174 69 47 121 48 180 133" fill="none" stroke="#a9d4da" stroke-width="18" stroke-linecap="round" opacity=".85"/>
+  <path d="M546 240c58 116 2 182 77 252 62 55 25 124 98 174 69 47 121 48 180 133" fill="none" stroke="#d9eef0" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+  <path d="M570 433c37-26 82-26 115 5 37 35 24 93-13 123-49 39-130 8-132-51-1-33 8-57 30-77z" fill="url(#water)" stroke="#7caeb7" stroke-width="5"/>
+  <g fill="#5d7256" opacity=".72">
+    <path d="M246 329l28-62 28 62h-17l25 51h-72l25-51zm31 45v32h-8v-32z"/>
+    <path d="M1037 310l31-69 31 69h-18l27 55h-80l28-55zm35 49v36h-9v-36z"/>
+    <path d="M1085 672l25-55 25 55h-14l22 45h-65l22-45zm29 40v29h-8v-29z"/>
+    <path d="M347 724l27-59 27 59h-15l24 49h-70l24-49zm31 44v31h-8v-31z"/>
+  </g>
+  <g fill="#65715b" opacity=".28" filter="url(#soft)">
+    <ellipse cx="411" cy="344" rx="136" ry="34"/>
+    <ellipse cx="1016" cy="487" rx="171" ry="41"/>
+    <ellipse cx="521" cy="801" rx="184" ry="38"/>
+  </g>
+</svg>

@@ -1,0 +1,196 @@
+/* 旅匣 product layer: restrained type, weather, account and live-service surfaces. */
+:root {
+  --luxia-ink: #2f2b27;
+  --luxia-green: #536c55;
+  --luxia-green-deep: #2d4434;
+  --luxia-brown: #896d53;
+  --luxia-cream: #fffcef;
+  --luxia-card: #fffef8;
+  --luxia-line: rgba(78, 65, 49, .12);
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+body { overscroll-behavior-y: none; }
+body,
+button,
+input,
+select,
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  font-optical-sizing: auto;
+}
+
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.flight-carousel,
+.reservation-discovery-grid,
+.reservation-filters { touch-action: pan-y; }
+
+.account-trigger {
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid rgba(83, 108, 85, .18);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--luxia-green-deep);
+  background: rgba(255, 254, 248, .78);
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 120ms ease-out, background-color 160ms ease-out;
+}
+.account-trigger:active { transform: scale(.97); }
+body.is-library .account-trigger { border-color: rgba(255,255,255,.18); background: rgba(255, 252, 239, .9); }
+
+.library-product-mark { margin-bottom: 34px; display: inline-flex; align-items: center; gap: 11px; }
+.library-product-mark > span { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; color: #4b402f; background: #efd486; box-shadow: 0 8px 24px rgba(12, 28, 18, .2); }
+.library-product-mark > div { display: grid; gap: 3px; }
+.library-product-mark b { color: #fffdf5; font-size: 17px; line-height: 1; letter-spacing: -.025em; }
+.library-product-mark small { color: rgba(255,253,245,.48); font-size: 8px; font-weight: 650; letter-spacing: .16em; }
+
+.library-hero { min-height: min(720px, 90vh); }
+.library-hero h1 {
+  max-width: 620px;
+  font-size: clamp(36px, 4.8vw, 62px);
+  font-weight: 690;
+  line-height: 1.04;
+  letter-spacing: -.048em;
+}
+.library-hero__copy > p:not(.library-eyebrow) { max-width: 530px; margin-top: 23px; font-size: clamp(13px, 1.25vw, 16px); line-height: 1.72; }
+.library-eyebrow { margin-bottom: 15px; font-size: 9px; letter-spacing: .16em; }
+.library-hero__actions { margin-top: 30px; }
+.library-primary { min-height: 44px; padding-inline: 18px; font-size: 12px; }
+.library-hero__actions > span { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; }
+.sync-state-dot { width: 6px; height: 6px; border-radius: 50%; background: #e5c97c; box-shadow: 0 0 0 4px rgba(229,201,124,.1); }
+.library-section-heading h2 { font-size: clamp(27px, 3vw, 40px); letter-spacing: -.04em; }
+.library-features { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.library-features h2 { font-size: 17px; letter-spacing: -.025em; }
+.library-features p { font-size: 12px; line-height: 1.68; }
+
+/* Lower large titles throughout the product without flattening hierarchy. */
+.hero h1 { font-size: clamp(36px, 7vw, 54px); letter-spacing: -.048em; }
+.section-heading h2 { font-size: clamp(26px, 5.6vw, 34px); letter-spacing: -.038em; }
+.outfit-hero h1 { font-size: clamp(32px, 7vw, 46px) !important; letter-spacing: -.042em !important; }
+.ledger-page-header h1 { font-size: clamp(31px, 7vw, 42px) !important; letter-spacing: -.042em !important; }
+.reservation-overview strong { font-size: 34px; letter-spacing: -.042em; }
+.reservation-overview strong small { font-size: 16px; }
+
+/* Rental return priority stays clear without introducing a pink alert surface. */
+.return-deadline,
+.return-deadline.is-urgent {
+  color: #5f4b39;
+  background: linear-gradient(155deg, #fffaf0, #f4ead9);
+  border-bottom-color: rgba(137, 109, 83, .42);
+}
+
+.account-dialog {
+  width: min(520px, calc(100% - 24px));
+  max-height: min(760px, calc(100dvh - 24px));
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 28px;
+  color: var(--luxia-ink);
+  background: var(--luxia-cream);
+  box-shadow: 0 34px 90px rgba(41, 33, 25, .28);
+}
+.account-dialog::backdrop { background: rgba(37, 42, 36, .38); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.account-dialog__header { padding: 21px 22px 18px; border-bottom: 1px solid var(--luxia-line); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.account-dialog__header span { color: var(--luxia-green); font-size: 9px; font-weight: 720; letter-spacing: .14em; }
+.account-dialog__header h2 { margin: 5px 0 0; font-size: 21px; line-height: 1.2; letter-spacing: -.035em; }
+.account-dialog__header button { min-height: 34px; padding: 0 11px; border: 0; border-radius: 999px; color: #695f56; background: #f1ecdf; font-size: 10px; cursor: pointer; }
+.account-dialog__body { padding: 20px 22px 24px; overflow-y: auto; }
+.account-preview-status { padding: 15px; border: 1px solid rgba(83,108,85,.13); border-radius: 18px; display: grid; grid-template-columns: 38px minmax(0,1fr) auto; align-items: center; gap: 11px; background: rgba(255,254,248,.84); }
+.account-preview-status__icon { width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; color: #fff; background: var(--luxia-green); font-size: 17px; }
+.account-preview-status strong { font-size: 13px; }
+.account-preview-status p { margin: 4px 0 0; color: #80766c; font-size: 10px; line-height: 1.45; }
+.account-status-pill { padding: 5px 8px; border-radius: 999px; color: #7b634c; background: #f2e6d4; font-size: 8px; font-weight: 700; }
+.account-signin-button { width: 100%; min-height: 46px; margin-top: 14px; border: 0; border-radius: 15px; color: #fff; background: var(--luxia-green-deep); font-size: 12px; font-weight: 680; cursor: pointer; }
+.account-signin-button:active { transform: scale(.985); }
+.account-security-note { margin: 10px 3px 0; color: #8b8177; font-size: 9px; line-height: 1.55; }
+.account-capabilities { margin-top: 19px; display: grid; gap: 8px; }
+.account-capabilities article { min-height: 68px; padding: 12px; border: 1px solid var(--luxia-line); border-radius: 16px; display: grid; grid-template-columns: 30px minmax(0,1fr) auto; align-items: center; gap: 10px; background: rgba(255,254,248,.68); }
+.account-capabilities article > span { width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; color: var(--luxia-green); background: rgba(83,108,85,.09); }
+.account-capabilities strong { font-size: 12px; }
+.account-capabilities p { margin: 3px 0 0; color: #857a70; font-size: 9px; line-height: 1.45; }
+.account-capabilities small { color: #9a8f84; font-size: 8px; }
+
+/* Weather belongs to each outfit day, close to the clothing decision. */
+.outfit-weather-summary { margin: 13px 0 0; display: flex; align-items: center; gap: 8px; color: #6f675f; font-size: 10px; }
+.outfit-weather-summary i { width: 7px; height: 7px; border-radius: 50%; background: #7d947b; }
+.outfit-weather { margin: 0 0 14px; padding: 12px; border: 1px solid rgba(83,108,85,.12); border-radius: 15px; display: grid; grid-template-columns: auto 1fr; gap: 12px; background: rgba(83,108,85,.06); }
+.outfit-weather__icon { width: 39px; height: 39px; border-radius: 13px; display: grid; place-items: center; color: #fff; background: var(--luxia-green); font-size: 18px; }
+.outfit-weather__main { min-width: 0; }
+.outfit-weather__main strong { display: block; font-size: 13px; font-variant-numeric: tabular-nums; }
+.outfit-weather__main span { display: block; margin-top: 3px; color: #766d65; font-size: 9px; line-height: 1.45; }
+.outfit-weather__advice { grid-column: 1 / -1; margin: 0; color: #625b54 !important; font-size: 10px !important; line-height: 1.5 !important; }
+.outfit-weather.is-pending .outfit-weather__icon { color: #7c897b; background: #e5eadf; }
+
+/* Provider-ready live recommendations. */
+.reservation-live-panel { margin-top: 16px; padding: 14px; border: 1px solid var(--luxia-line); border-radius: 19px; background: rgba(255,254,248,.72); }
+.reservation-live-panel__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.reservation-live-panel__heading strong { font-size: 12px; }
+.reservation-provider-state { display: inline-flex; align-items: center; gap: 6px; color: #8a7e72; font-size: 8px; }
+.reservation-provider-state::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #b7a58e; }
+.reservation-provider-state.is-live::before { background: #5d815f; box-shadow: 0 0 0 4px rgba(93,129,95,.1); }
+.reservation-live-search { margin-top: 11px; display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.reservation-live-search input { min-width: 0; min-height: 42px; padding: 0 13px; border: 1px solid var(--luxia-line); border-radius: 13px; color: var(--luxia-ink); background: #fffef8; font-size: 12px; outline: 0; }
+.reservation-live-search input:focus { border-color: rgba(83,108,85,.46); box-shadow: 0 0 0 3px rgba(83,108,85,.08); }
+.reservation-live-search button { min-height: 42px; padding: 0 15px; border: 0; border-radius: 13px; color: #fff; background: var(--luxia-green); font-size: 10px; font-weight: 680; cursor: pointer; }
+.reservation-live-note { margin: 9px 0 0; color: #8b8177; font-size: 9px; line-height: 1.5; }
+.reservation-live-results { margin-top: 11px; display: grid; gap: 8px; }
+.reservation-live-result { min-width: 0; overflow: hidden; border: 1px solid var(--luxia-line); border-radius: 16px; display: grid; grid-template-columns: 92px minmax(0,1fr); background: #fffef8; }
+.reservation-live-result img { width: 92px; height: 100%; min-height: 104px; object-fit: cover; }
+.reservation-live-result__placeholder { min-height: 104px; display: grid; place-items: center; color: #fff; background: linear-gradient(145deg,#a9baa1,#5d775e); font-size: 26px; }
+.reservation-live-result__body { min-width: 0; padding: 11px; }
+.reservation-live-result__body strong { display: block; font-size: 12px; line-height: 1.35; }
+.reservation-live-result__meta { margin-top: 4px; color: #8a796b; font-size: 9px; }
+.reservation-live-result__address { margin-top: 5px; color: #746a61; font-size: 9px; line-height: 1.4; }
+.reservation-live-result__actions { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px; }
+.reservation-live-result__actions a,
+.reservation-live-result__actions button { min-height: 29px; padding: 0 9px; border: 1px solid rgba(83,108,85,.16); border-radius: 999px; display: inline-flex; align-items: center; color: var(--luxia-green-deep); background: rgba(83,108,85,.06); text-decoration: none; font-size: 8px; cursor: pointer; }
+
+@media (max-width: 800px) {
+  .library-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .account-trigger { min-height: 34px; padding-inline: 10px; font-size: 10px; }
+  .library-product-mark { margin-bottom: 29px; }
+  .library-hero { padding-top: 110px; }
+  .library-hero h1 { font-size: clamp(34px, 10.4vw, 45px); line-height: 1.08; letter-spacing: -.045em; }
+  .library-hero__copy > p:not(.library-eyebrow) { font-size: 13px; line-height: 1.7; }
+  .library-hero__art { min-height: 300px; }
+  .library-features { grid-template-columns: 1fr; }
+  .account-preview-status { grid-template-columns: 36px minmax(0,1fr); }
+  .account-status-pill { grid-column: 2; justify-self: start; }
+  .reservation-live-search { grid-template-columns: 1fr; }
+}
+
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select { font-size: 16px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-trigger,
+  .account-signin-button { transition: none; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .account-dialog::backdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}

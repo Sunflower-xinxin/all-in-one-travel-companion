@@ -1,0 +1,26 @@
+{
+  "name": "旅匣 · 旅行工作台",
+  "short_name": "旅匣",
+  "description": "把琐事装进行囊，把自由留给旅途。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffcef",
+  "theme_color": "#fffcef",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
